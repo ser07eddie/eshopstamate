@@ -29,6 +29,7 @@ public class LoginController {
         List<User> users = jdbcTemplate.query("select * from user where username=? and password=?;", params, new UserMapper());
 
         if(users.size() > 0) {
+            securitySession.setUserId(users.get(0).getIduser());
             securitySession.markUserLogged();
             return new ModelAndView("redirect:/categories");
 

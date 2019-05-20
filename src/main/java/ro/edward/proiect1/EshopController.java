@@ -28,6 +28,7 @@ public class EshopController {
     @GetMapping("/welcome")
     public ModelAndView welcome() {
 
+
         ModelAndView modelAndView = new ModelAndView("welcome");
         modelAndView.addObject("logged", securitySession.isUserLogged());
         return modelAndView;
@@ -65,21 +66,21 @@ public class EshopController {
     }
 
     @GetMapping("/products")
-    public ModelAndView showAll() {
+    public ModelAndView showAll(@RequestParam("category_id") Integer catId) {
         if (!securitySession.isUserLogged()) {
             return new ModelAndView("redirect:/login");
 
         }
         ModelAndView modelAndView = new ModelAndView("products");
         modelAndView.addObject("logged", securitySession.isUserLogged());
-        List<Product> productList = productDAO.findAll();
+        List<Product> productList = productDAO.findAllByCatId(catId);
         modelAndView.addObject("products", productList);
         return modelAndView;
     }
 
 
 
-    @GetMapping("/register")
+    @GetMapping("/register-action")
     public String create(
             @RequestParam("name") String name,
             @RequestParam("username") String username,
@@ -88,6 +89,7 @@ public class EshopController {
             @RequestParam("address") String address
 
     ) {
+
         User user = new User();
         user.setName(name);
         user.setUsername(username);

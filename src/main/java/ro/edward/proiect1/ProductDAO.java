@@ -2,17 +2,11 @@ package ro.edward.proiect1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
-public class ProductDAO {
+public interface ProductDAO {
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
-
-    public List<Product> findAll() {
-        return jdbcTemplate.query("select * from products", new ProductMapper());
-    }
+    public List<Product> findAll();
+    public List<Product> findAllByCatId(Integer catId);
 }

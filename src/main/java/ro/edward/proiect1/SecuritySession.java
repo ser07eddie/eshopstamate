@@ -11,6 +11,7 @@ import org.springframework.web.context.WebApplicationContext;
 public class SecuritySession {
 
     boolean isLogged;
+    int userId;
 
     public void markUserLogged() {
 
@@ -24,5 +25,13 @@ public class SecuritySession {
 
     public boolean userNotLogged() {
         return isLogged = false;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
