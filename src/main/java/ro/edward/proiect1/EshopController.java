@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,16 +18,16 @@ public class EshopController {
     UserRegister userRegister;
 
     @Autowired
-    ProductDAO productDAO;
+    DatabaseProductDAO databaseProductDAO;
 
     @Autowired
-    CategoriesDAO categoriesDAO;
+    DatabaseCategoryDAO databaseCategoriesDAO;
 
 
-    @GetMapping("/welcome")
-    public ModelAndView welcome() {
+    @GetMapping("/index")
+    public ModelAndView index() {
 
-        ModelAndView modelAndView = new ModelAndView("welcome");
+        ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("logged", securitySession.isUserLogged());
         return modelAndView;
     }
@@ -42,7 +41,7 @@ public class EshopController {
     @GetMapping("/logout")
     public ModelAndView logout() {
         securitySession.userNotLogged();
-        ModelAndView modelAndView = new ModelAndView("welcome");
+        ModelAndView modelAndView = new ModelAndView("index");
         return modelAndView;
     }
 
@@ -59,27 +58,27 @@ public class EshopController {
         }
         ModelAndView modelAndView = new ModelAndView("categories");
         modelAndView.addObject("logged", securitySession.isUserLogged());
-        List<Categories> categoriesList = categoriesDAO.findAll();
+        List<Category> categoriesList = databaseCategoriesDAO.findAll();
         modelAndView.addObject("categories", categoriesList);
         return modelAndView;
     }
 
     @GetMapping("/products")
-    public ModelAndView showAll() {
+    public ModelAndView showAll(@RequestParam("category_id")Integer catId) {
         if (!securitySession.isUserLogged()) {
             return new ModelAndView("redirect:/login");
 
         }
         ModelAndView modelAndView = new ModelAndView("products");
         modelAndView.addObject("logged", securitySession.isUserLogged());
-        List<Product> productList = productDAO.findAll();
+        List<Product> productList = databaseProductDAO.findAllByCatId(catId);
         modelAndView.addObject("products", productList);
         return modelAndView;
     }
 
 
 
-    @GetMapping("/register")
+    @GetMapping("/register-action")
     public String create(
             @RequestParam("name") String name,
             @RequestParam("username") String username,

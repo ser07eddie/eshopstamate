@@ -2,19 +2,19 @@ package ro.edward.proiect1;
 
 public class User {
 
-    int iduser;
+    int id;
     String name;
     String username;
     String email;
     String password;
     String address;
 
-    public int getIduser() {
-        return iduser;
+    public int getId() {
+        return id;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -60,7 +60,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "iduser=" + iduser +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +

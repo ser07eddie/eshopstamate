@@ -13,7 +13,7 @@ public class UserRegister {
     JdbcTemplate jdbcTemplate;
 
 
-    Logger logger = LoggerFactory.getLogger(UserRegister.class);              //Logger.org.slf4j (pentru a aparea logarea in consola
+    Logger logger = LoggerFactory.getLogger(UserRegister.class);              //Logger.org.slf4j (pentru a aparea logarea in consola)
 
     public void saveUser(User user) {
 

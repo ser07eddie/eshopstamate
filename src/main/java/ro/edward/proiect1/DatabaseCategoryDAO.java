@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class CategoriesDAO {
+public class DatabaseCategoryDAO implements CategoryDAO {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public List<Categories> findAll() {
-        return jdbcTemplate.query("select * from categories", new CategoriesMapper());
+    public List<Category> findAll() {
+        return jdbcTemplate.query("select * from category", new CategoryMapper());
 
     }
 }

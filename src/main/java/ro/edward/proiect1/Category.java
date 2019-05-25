@@ -1,18 +1,18 @@
 package ro.edward.proiect1;
 
-public class Categories {
+public class Category {
 
-    int idcategories;
+    int id;
     String name;
     String description;
     String photo;
 
-    public int getIdcategories() {
-        return idcategories;
+    public int getId() {
+        return id;
     }
 
-    public void setIdcategories(int idcategories) {
-        this.idcategories = idcategories;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
