@@ -24,6 +24,10 @@ public class EshopController {
     DatabaseCategoryDAO databaseCategoryDAO;
 
 
+    @Autowired
+    private CartSession cartSession;
+
+
     @GetMapping("/index")
     public ModelAndView index() {
 
@@ -60,6 +64,7 @@ public class EshopController {
         modelAndView.addObject("logged", securitySession.isUserLogged());
         List<Category> categoriesList = databaseCategoryDAO.findAll();
         modelAndView.addObject("categories", categoriesList);
+        modelAndView.addObject("nr_product",cartSession.getProductIds().size() );
         return modelAndView;
     }
 
