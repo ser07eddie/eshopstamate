@@ -19,7 +19,6 @@ public class LoginController {
     SecuritySession securitySession;
 
     @PostMapping("login")
-
     public ModelAndView loginUser(@RequestParam("username") String username,
                                   @RequestParam("password") String password
     ) {

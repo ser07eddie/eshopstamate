@@ -21,7 +21,7 @@ public class EshopController {
     DatabaseProductDAO databaseProductDAO;
 
     @Autowired
-    DatabaseCategoryDAO databaseCategoriesDAO;
+    DatabaseCategoryDAO databaseCategoryDAO;
 
 
     @GetMapping("/index")
@@ -58,7 +58,7 @@ public class EshopController {
         }
         ModelAndView modelAndView = new ModelAndView("categories");
         modelAndView.addObject("logged", securitySession.isUserLogged());
-        List<Category> categoriesList = databaseCategoriesDAO.findAll();
+        List<Category> categoriesList = databaseCategoryDAO.findAll();
         modelAndView.addObject("categories", categoriesList);
         return modelAndView;
     }

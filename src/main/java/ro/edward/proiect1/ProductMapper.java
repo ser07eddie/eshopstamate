@@ -1,7 +1,5 @@
 package ro.edward.proiect1;
-
 import org.springframework.jdbc.core.RowMapper;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
