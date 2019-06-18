@@ -78,6 +78,7 @@ public class EshopController {
         modelAndView.addObject("logged", securitySession.isUserLogged());
         List<Product> productList = databaseProductDAO.findAllByCatId(catId);
         modelAndView.addObject("products", productList);
+        modelAndView.addObject("nr_product",cartSession.getProductIds().size() );
         return modelAndView;
     }
 
@@ -103,4 +104,7 @@ public class EshopController {
 
         return "redirect:/login";
     }
+
+
+
 }

@@ -10,6 +10,7 @@ public class Product {
     BigDecimal price;
     int quantity;
     String photo;
+    int catId;
 
     public int getId() {
         return id;
@@ -57,5 +58,13 @@ public class Product {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public int getCatId() {
+        return catId;
+    }
+
+    public void setCatId(int catId) {
+        this.catId = catId;
     }
 }
