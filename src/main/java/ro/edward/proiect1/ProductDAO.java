@@ -7,4 +7,5 @@ public interface ProductDAO {
 
     public List<Product> findAll();
     public List<Product> findAllByCatId(Integer catId);
+    public Product findById(Integer productId);
 }

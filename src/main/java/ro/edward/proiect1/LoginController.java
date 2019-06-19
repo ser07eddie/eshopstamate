@@ -29,6 +29,7 @@ public class LoginController {
 
         if(users.size() > 0) {
             securitySession.markUserLogged();
+            securitySession.setUserId(users.get(0).getId());
             return new ModelAndView("redirect:/categories");
 
         }else{

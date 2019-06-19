@@ -22,4 +22,10 @@ public class DatabaseProductDAO implements ProductDAO {
     }
 
 
+    @Override
+    public Product findById(Integer prodId) {
+        return jdbcTemplate.query("select * from product where id="+ prodId, new ProductMapper()).get(0);
+    }
+
+
 }
