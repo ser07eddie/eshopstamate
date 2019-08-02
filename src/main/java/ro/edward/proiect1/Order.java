@@ -5,10 +5,12 @@ import java.math.BigDecimal;
 public class Order {
 
     int id;
-    int iduser;
+    int idUser;
     BigDecimal price;
     int quantity;
-    int idproduct;
+    int idProduct;
+
+
 
 
 }

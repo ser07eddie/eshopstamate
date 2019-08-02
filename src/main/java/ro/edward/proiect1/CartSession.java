@@ -19,6 +19,7 @@ public class CartSession {
         if(productIds == null) {
             productIds = new ArrayList<>();
         }
+
         return productIds;
     }
 

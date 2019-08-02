@@ -21,7 +21,6 @@ public class DatabaseProductDAO implements ProductDAO {
         return jdbcTemplate.query("select * from product where category_id="+ catId, new ProductMapper());
     }
 
-
     @Override
     public Product findById(Integer prodId) {
         return jdbcTemplate.query("select * from product where id="+ prodId, new ProductMapper()).get(0);
